@@ -16,6 +16,23 @@ int main(int argc, char *argv[]) {
 	printf("============================================================\n\n\n");
 	
 	
+	//game
+	
+	//initialize bingo board
+	
+	/*
+	while (game is not end) //홀수가 N_BINGO보다 작음 
+	{
+		//bingo board print
+		
+		//print no. of completed line
+		
+		//select a number //main함수에서 구현 
+		
+		//update the board status
+	}
+	*/
+	
 	
 	//ending
 	printf("\n\n\n\n\n\n\n\n\n\n");
@@ -26,7 +43,8 @@ int main(int argc, char *argv[]) {
 	printf("                        YOU WIN!!!!!                        \n");
 	printf("************************************************************\n");
 	printf("============================================================\n\n\n");
-		
+	
+	
 	
 	return 0;
 }
