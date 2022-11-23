@@ -10,57 +10,32 @@ static int numberStatus[N_SIZE*N_SIZE];
 
 void bingo_init(void)
 {
-	int i, j;
-	int cnt = 1;
-	
-	for (i=0;i<N_SIZE;i++)
-		for (j=0;j<N_SIZE;j++)
-		{
-			if (cnt == 15)
-			{
-				bingoBoard[i][j] = BINGONUM_HOLE;
-				numberStatus[cnt-1] = BINGONUM_HOLE;
-				
-				cnt++;
-			}
-			else
-			{
-				numberStatus[cnt-1] = i*N_SIZE + j;
-				bingoBoard[i][j] = cnt++;
-			}
-		}
-}
-
-/*
-void bingo_init(void)
-{
 	int i, j, k;
 	int randNum;
 	int maxNum = N_SIZE*N_SIZE;
 	
-	for (i=0;i<N_SIZE;i++) {
-		for (j=0;j=N_SIZE;j++) {
-			randNum = 0 - maxNum - 1 중 임의의 값 생성 
+	for (i=0;i<N_SIZE*N_SIZE;i++)
+		numberStatus[i] = BINGO_NUMSTATUS_ABSENT;
+		
+	for (i=0;i<N_SIZE;i++)
+		for (j=0;j<N_SIZE;j++) {
+			randNum = rand()%maxNum; 
 			
-			for (k=0;k<N_SIZE;k++) {
-				if (numberStatus[k]가 아직 할당이 안됨)
+			for (k=0;k<N_SIZE*N_SIZE;k++) {
+				if (numberStatus[k] == BINGO_NUMSTATUS_ABSENT )
 				{
-					if (randNum == 0) {
-					break;
-					}
+					if (randNum == 0)  
+						break;
 					else
-					{
 						randNum--;
-					}
 				}
 			}
-			bingoBoard의 i번째 행, j번째 옆에 k+1 값 할당;
-			numberStatus[k] = N_SIZE*i+j;
-			maxNum 값 하나 줄임;
+			numberStatus[k] = i*N_SIZE + j;
+			bingoBoard[i][j] = k+1;
+			maxNum--;
 		}
-	}
 }
-*/
+
 
 void bingo_printBoard(void)
 {

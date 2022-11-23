@@ -4,6 +4,7 @@
 #define BINGO_NUMSTATUS_ABSENT   -1
 #define BINGO_NUMSTATUS_PRESENT   0
 
+
 void bingo_init(void);
 void bingo_printBoard(void);
 void bingo_inputNum(int sel);
